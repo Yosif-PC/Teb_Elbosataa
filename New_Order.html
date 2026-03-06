@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>طب البسطاء</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <!--
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+-->
+
+</head>
+<body>
+  <button class="B_Home">طلب جديد</button> 
+  <label id="invoice">فاتورة رقم : </label>
+    <row>
+      <label>العميل</label>
+      <input id="Cl" readonly>
+      <input type="hidden" id="Cl_Phone" readonly>
+      <input type="hidden" id="Cl_Address" readonly>
+    </row>
+    <row>
+      <label>الصنف</label>
+      <input id="D1" readonly>
+      
+    </row>
+    <row>
+      <label>الكمية</label>
+      <input type="number" id="D2" >
+      <label>السعر</label>
+      <input type="number" id="D3">
+      <button class="B_Any" style="width: 150px;background-color: rgb(87, 177, 255)" onclick="addToTable()">إضافة</button>
+    </row> 
+    <table id="resultsTable">
+    <thead>
+      <tr>
+        <th>الصنف</th>
+        <th>الكمية</th>
+        <th>السعر</th>
+        <th>الإحمالى</th>
+        <th></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+    </tbody>
+  </table>
+  <row>
+      <label>التوصيل</label>
+      <input type="number" id="D5">
+      <label>الخصم</label>
+      <input type="number" id="D6">
+    </row>
+
+    <table id="resultsTable2">
+    <thead>
+      <tr>
+        <th>ثمن الأصناف</th>
+        <th>التوصيل</th>
+        <th>الخصم</th>
+        <th>المطلوب</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+    </tbody>
+  </table>
+
+  
+
+  
+    
+
+    <row style="gap: 20px">
+      <button class="B_Any" style="width: 100%;background-color: rgb(35, 143, 65)" onclick="sendData()" >حفظ</button>
+    </row>
+
+
+<div id="loadingOverlay" style="
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:1.5em;
+">
+    برجاء الإنتظار...
+</div>
+
+
+
+<!-- Popup للـ Clients_List (مرتبط بالـ input id CL) -->
+<div id="popup_CL" class="popup" hidden="true">
+  <div class="popup-content" role="dialog" aria-labelledby="title_CL">
+    <h3 id="title_CL">قائمة العملاء</h3>
+
+    <input type="text" id="search_CL" class="search-box" placeholder="ابحث عن اسم العميل..." oninput="filterList('popup_CL', this.value)">
+
+    <div class="popup-list" id="list_CL">
+      <!-- سيتم ملؤه تلقائيًا بواسطة JS -->
+    </div>
+
+    <div id="no_CL" class="no-results" style="display:none;">لا توجد نتائج</div>
+  </div>
+</div>
+
+<!-- Popup للـ Products_List (مرتبط بالـ input id D1) -->
+<div id="popup_D1" class="popup" hidden="true">
+  <div class="popup-content" role="dialog" aria-labelledby="title_D1">
+    <h3 id="title_D1">قائمة المنتجات</h3>
+
+    <input type="text" id="search_D1" class="search-box" placeholder="ابحث عن المنتج..." oninput="filterList('popup_D1', this.value)">
+
+    <div class="popup-list" id="list_D1">
+    </div>
+
+    <div id="no_D1" class="no-results" style="display:none;">لا توجد نتائج</div>
+  </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<script src="FireBase.js"></script>
+<script src="New_Order_Js.js"></script>
+
+
+<head>
+<meta charset="UTF-8">
+<title>3 رسائل</title>
+<style>
+.alert-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);justify-content:center;align-items:center}
+.alert-box{background:#fff;padding:20px;border-radius:10px;text-align:center;width:260px;animation:pop 0.3s ease}
+.alert-box h2{margin:0 0 8px;color:#28a745}
+@keyframes pop{from{transform:scale(0.7);opacity:0}to{transform:scale(1);opacity:1}}
+</style>
+</head>
+
+<div class="alert-bg" id="alert">
+  <div class="alert-box">
+    <h2 id="alert-title"></h2>
+  </div>
+</div>
+
+<script>
+
+function showAlert(title) {
+  document.getElementById("alert-title").innerText = title;
+  document.getElementById("alert").style.display = "flex";
+  setTimeout(() => {
+    document.getElementById("alert").style.display = "none";
+  }, 2000);
+}
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
