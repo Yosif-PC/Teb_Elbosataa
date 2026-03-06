@@ -5,37 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ثلاث أزرار عصرية</title>
     <link rel="stylesheet" href="style.css">
-  <!--
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
--->
 </head>
 <body>
-  <button class="B_Home">العملاء</button>
+  <button class="B_Home">الأصناف</button>
   <row>
-    <label>العميل</label>
-    <input id="C1">
-  </row>
-  <row>
-    <label>العنوان</label>
-    <input id="C2">
+    <label>الصنف</label>
+    <input id="P1" name="الصنف">
   </row>
   <row>
-    <label>الهاتف</label>
-    <input type="number" id="C3">
-    <button class="B_Any" style="width: 150px;background-color: rgb(87, 177, 255)" onclick="addToClientsTable()">+</button>
-  </row>
-  <row style="gap: 20px">
-      <button class="B_Any" style="width: 100%;background-color: rgb(35, 143, 65)" onclick="sendClientsData()" >حفظ</button>
-  </row>
-    <table id="ClientsTable">
+      <label>السعر</label>
+      <input id="P2" type="number" name="سعر الصنف">
+      <button class="B_Any" style="width: 150px;background-color: rgb(87, 177, 255)" onclick="addToProductsTable()">+</button>
+    </row>
+    <row style="gap: 20px">
+      <button class="B_Any" style="width: 100%;background-color: rgb(35, 143, 65)" onclick="sendProductsData()" >حفظ</button>
+  </row> 
+    <table id="ProductsTable">
     <thead>
       <tr>
-        <th>العميل</th>
-        <th>العنوان</th>
-        <th>الهاتف</th>
+        <th>الصنف</th>
+        <th>السعر</th>
         <th></th>
       </tr>
       <tbody></tbody>
@@ -45,11 +38,14 @@
 
 
 </body>
+
+
 </html>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 <script src="FireBase.js"></script>
-<script src="Clients_js.js"></script>
+<script src="Products_js.js"></script>
+
 
 <head>
 <meta charset="UTF-8">
