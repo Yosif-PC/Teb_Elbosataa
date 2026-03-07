@@ -5,12 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>طب البسطاء</title>
   <link rel="stylesheet" href="style.css">
-  <!--
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
--->
+
 
 </head>
 <body>
@@ -20,14 +15,22 @@
   <img src="Home_Logo.png" class="loader-logo">
   </div>
 
-  <button class="B_Home">طلب جديد</button> 
+  <button class="B_Home" >طلب جديد</button> 
   <label id="invoice">فاتورة رقم : </label>
     <row>
       <label>العميل</label>
       <input id="Cl" readonly>
-      <input type="hidden" id="Cl_Phone" readonly>
-      <input type="hidden" id="Cl_Address" readonly>
     </row>
+    <row>
+      <label>العنوان</label>
+      <input  id="Cl_Address">
+    </row>
+    <row>
+      <label>الهاتف</label>
+      <input  id="Cl_Phone">
+
+    </row>
+    <br>
     <row>
       <label>الصنف</label>
       <input id="D1" readonly>
