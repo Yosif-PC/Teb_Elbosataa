@@ -11,7 +11,8 @@ db.ref("Archive_Order_LD").on("value", (snapshot)=>{
     const data = snapshot.val();
 
     invoicesData=data||[]
-    renderInvoiceList(invoicesData);})
+    renderInvoiceList(invoicesData);
+  document.getElementById("loader").style.display = "none";})
 
 
 
@@ -145,7 +146,7 @@ if(rowToRemove){
 
     showAlert('تم حزف الطلب بنجاح ✅')  
   setTimeout(() => {
-    window.location.reload();
+    document.getElementById("popup_invoices").style.display = "flex";
   }, 2000);
 }else{
     showAlert('الطلب غير موجود ❌')
@@ -179,7 +180,7 @@ if(rowToRemove){
 
     showAlert('تم إرجاع الطلب  ✅')
     setTimeout(() => {
-    window.location.reload();
+    document.getElementById("popup_invoices").style.display = "flex";
   }, 2000);
 }else{
     showAlert('الطلب غير موجود ❌')
@@ -215,15 +216,15 @@ function closePopup() {
 }
 
 
+function Print(){
 
-document.getElementById("window.print").addEventListener("click", () => {
-  // اختر العنصر الذي تريد حفظه
-  const element = document.getElementById("Print_Area"); 
+html2canvas(document.getElementById("Print_Area")).then(function(canvas){
 
-  html2canvas(element).then(canvas => {
     const link = document.createElement("a");
-    link.download = "section.png";       // اسم الصورة
-    link.href = canvas.toDataURL("image/png");
+    link.download = `${document.querySelector("#invoiceInfo tr").cells[0].innerText}-${document.querySelector("#invoiceInfo tr").cells[1].innerText}.png`;
+    link.href = canvas.toDataURL();
     link.click();
-  });
+
 });
+
+}

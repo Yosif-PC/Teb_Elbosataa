@@ -38,6 +38,7 @@ db.ref("Clients_LD").on("value", (snapshot)=>{
     const list_CL = document.getElementById("list_CL");
     list_CL.innerHTML = ClientsList.map(p => `<button class="item-btn">${p[0]}</button>`).join('');
     attachButtons(list_CL, 'CL');
+    document.getElementById("loader").style.display = "none";
     })
 
 
@@ -106,7 +107,9 @@ function addToTable() {
     const D1 = document.getElementById("D1").value;
     const D2 = Number(document.getElementById("D2").value);
     const D3 = Number(document.getElementById("D3").value);
-    if (!D1 || !D2 || !D3) return;
+    if (!D1 || !D2 || !D3){ showAlert('تأكد من مدخلاتك')
+         return};
+
     Order_Data.push([D1, D2, D3, D2 * D3]);
     updateTable();
 }
@@ -127,10 +130,9 @@ function updateTable() {
 
 // === حذف صف ===
 function deleteRow(i) {
-    if (confirm("هل أنت متأكد؟")) {
-        Order_Data.splice(i, 1);
-        updateTable();
-    }
+    
+    Order_Data.splice(i, 1);
+    updateTable();
 }
 
 // === تحديث ملخص الطلب ===
@@ -163,7 +165,14 @@ db.ref("Last_Invoice_Number").on("value", (snapshot)=>{
 
 
 function sendData() {
-    
+
+    if (document.getElementById("Cl").value==""){
+        showAlert('يجب اختيار عميل')
+         return};
+
+    if (Order_Data.length==0 ){
+        showAlert('أضف صنف واحد على الأقل')
+         return};
     
 
     const D5 = Number(document.getElementById("D5").value || 0);

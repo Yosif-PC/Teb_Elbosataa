@@ -14,6 +14,12 @@
 
 </head>
 <body>
+
+  <div id="loader">
+  <div class="spinner"></div>
+  <img src="Home_Logo.png" class="loader-logo">
+  </div>
+
   <button class="B_Home">طلب جديد</button> 
   <label id="invoice">فاتورة رقم : </label>
     <row>
@@ -126,10 +132,12 @@
     <div id="no_D1" class="no-results" style="display:none;">لا توجد نتائج</div>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 <script src="FireBase.js"></script>
-<script src="New_Order_js.js"></script>
+<script src="New_Order_Js.js"></script>
 
 
 <head>
@@ -137,7 +145,7 @@
 <title>3 رسائل</title>
 <style>
 .alert-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);justify-content:center;align-items:center}
-.alert-box{background:#fff;padding:20px;border-radius:10px;text-align:center;width:260px;animation:pop 0.3s ease}
+.alert-box{background:#fff;padding:10px;border-radius:20px;text-align:center;width:300px;animation:pop 0.3s ease}
 .alert-box h2{margin:0 0 8px;color:#28a745}
 @keyframes pop{from{transform:scale(0.7);opacity:0}to{transform:scale(1);opacity:1}}
 </style>

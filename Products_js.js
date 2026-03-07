@@ -3,6 +3,7 @@ db.ref("Products_LD").on("value", (snapshot)=>{
   const data = snapshot.val();
 
   ProductsList=data||[]
+  document.getElementById("loader").style.display = "none";
   renderTable();
 });
 

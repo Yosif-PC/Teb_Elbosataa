@@ -3,7 +3,8 @@ db.ref("Clients_LD").on("value", (snapshot)=>{
     const data = snapshot.val();
 
     ClientsList=data||[]
-    renderTable();})
+    renderTable();
+  document.getElementById("loader").style.display = "none";})
 
 
 
@@ -68,7 +69,7 @@ function renderTable() {
   }
 
   function sendClientsData() {
-    
+
     db.ref("Clients_LD").set(ClientsList);
     showAlert("تم الحفظ بنجاح");
 
