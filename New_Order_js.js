@@ -2,8 +2,8 @@
 function selectClient(val) {
     document.getElementById("Cl").value = val;
     const index = ClientsList.findIndex(row => row[0] === val);
-    document.getElementById("Cl_Phone").value = (index >= 0) ? ClientsList[index][1] || "" : "";
-    document.getElementById("Cl_Address").value = (index >= 0) ? ClientsList[index][2] || "" : "";
+    document.getElementById("Cl_Address").value = (index >= 0) ? ClientsList[index][1] || "" : "";
+    document.getElementById("Cl_Phone").value = (index >= 0) ? ClientsList[index][2] || "" : "";
 
     closePopup("popup_CL");
 }
