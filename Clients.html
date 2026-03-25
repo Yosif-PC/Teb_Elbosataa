@@ -1,71 +1,116 @@
 <!doctype html>
 <html lang="ar">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ثلاث أزرار عصرية</title>
-    <link rel="stylesheet" href="style.css">
-  <!--
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
--->
+
+
 </head>
+
 <body>
 
   <div id="loader">
-  <div class="spinner"></div>
-  <img src="Home_Logo.png" class="loader-logo">
+    <div class="spinner"></div>
+    <img src="Home_Logo.png" class="loader-logo">
   </div>
 
-  <button class="B_Home">العملاء</button>
-  <row>
-    <label>العميل</label>
-    <input id="C1">
-  </row>
-  <row>
-    <label>العنوان</label>
-    <input id="C2">
-  </row>
-  <row>
-    <label>الهاتف</label>
-    <input type="number" id="C3">
-    <button class="B_Any" style="width: 150px;background-color: rgb(87, 177, 255)" onclick="addToClientsTable()">+</button>
-  </row>
-  <row style="gap: 20px">
-      <button class="B_Any" style="width: 100%;background-color: rgb(35, 143, 65)" onclick="sendClientsData()" >حفظ</button>
-  </row>
-    <table id="ClientsTable">
-    <thead>
-      <tr>
-        <th>العميل</th>
-        <th>العنوان</th>
-        <th>الهاتف</th>
-        <th></th>
-      </tr>
-      <tbody></tbody>
-    </thead>
-    
-  </table>
+  <card>
+    <row>
+
+      <button class="B_ICON" style="width: 100%;font-size: large;"
+        onclick="document.getElementById('popup_invoices').style.display='flex'">العملاء</button>
+    </row>
+  </card>
+  <card>
+    <row>
+      <button class="B_ICON"><span class="material-symbols-outlined">person</span></button>
+      <input id="C1" placeholder="العميل">
+    </row>
+    <row>
+      <button class="B_ICON"><span class="material-symbols-outlined">location_on</span></button>
+      <input id="C2" placeholder="العنوان">
+    </row>
+    <row>
+      <button class="B_ICON"><span class="material-symbols-outlined">phone_in_talk</span></button>
+      <input id="C3" type="number" placeholder="رقم الهاتف">
+      <button class="B_ICON" onclick="addToClientsTable()"><span class="material-symbols-outlined">Add</span></button>
+    </row>
+  </card>
+  <card>
+    <row>
+      <button class="B_ICON" style="width: 100%;font-size: large;" onclick="sendClientsData()">حفظ</button>
+    </row>
+  </card>
+  <card >
+    <row>
+      <table id="ClientsTable">
+        <thead>
+          <tr>
+            <th>العميل</th>
+            <th>العنوان</th>
+            <th>الهاتف</th>
+            <th></th>
+            <th></th>
+          </tr>
+        <tbody></tbody>
+        </thead>
+
+      </table>
+    </row>
+  </card>
 
 
 </body>
+
 </html>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 <script src="FireBase.js"></script>
 <script src="Clients_js.js"></script>
-
+<script src="version.js"></script>
 <head>
-<meta charset="UTF-8">
-<title>3 رسائل</title>
-<style>
-.alert-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);justify-content:center;align-items:center}
-.alert-box{background:#fff;padding:20px;border-radius:10px;text-align:center;width:260px;animation:pop 0.3s ease}
-.alert-box h2{margin:0 0 8px;color:#28a745}
-@keyframes pop{from{transform:scale(0.7);opacity:0}to{transform:scale(1);opacity:1}}
-</style>
+  <meta charset="UTF-8">
+  <title>3 رسائل</title>
+  <style>
+    .alert-bg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      justify-content: center;
+      align-items: center
+    }
+
+    .alert-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 260px;
+      animation: pop 0.3s ease
+    }
+
+    .alert-box h2 {
+      margin: 0 0 8px;
+      color: #28a745
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0.7);
+        opacity: 0
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1
+      }
+    }
+  </style>
 </head>
 
 <div class="alert-bg" id="alert">
@@ -76,12 +121,12 @@
 
 <script>
 
-function showAlert(title) {
-  document.getElementById("alert-title").innerText = title;
-  document.getElementById("alert").style.display = "flex";
-  setTimeout(() => {
-    document.getElementById("alert").style.display = "none";
-  }, 2000);
-}
+  function showAlert(title) {
+    document.getElementById("alert-title").innerText = title;
+    document.getElementById("alert").style.display = "flex";
+    setTimeout(() => {
+      document.getElementById("alert").style.display = "none";
+    }, 2000);
+  }
 
 </script>

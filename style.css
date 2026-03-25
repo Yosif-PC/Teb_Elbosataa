@@ -3,6 +3,7 @@ html,body{
   height:100%;
   margin:0;
   
+  
 }
 
 .no-style {
@@ -10,18 +11,27 @@ html,body{
   /* or use all: revert; to go back to browser defaults */
 }
 
-bodyPrint,body{
+body{
   font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:#011e3b;
+  background:#f1eafc;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:center;
   direction: rtl;
-  height: auto;
+  height: 100%;
   padding: 20px;
+  
 }
 
+bodyPrint{
+  background:#f1eafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  direction: rtl;
+  height: fit-content;
+  
+}
 
 
 bodyPrint{
@@ -95,8 +105,25 @@ bodyPrint{
 
 }
 
-
-
+   .item-btn {
+    display: block;
+    width: 100%;
+    padding: 9px 10px;
+    margin: 6px 0;
+    text-align: center;
+    font-family: inherit;
+  background: rgb(105, 102, 226);
+  color: #ffffff;
+  border-radius: 45px;
+  transition: all 0.3s;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: 550;
+  border: none;
+}
+.item-btn:hover {
+  background: rgb(2, 79, 129);
+  color: white;}
 
 
 
@@ -110,10 +137,52 @@ bodyPrint{
 }
 
 
+.B_Any {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 0.8em 1.5em 0.8em 1.2em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(
+    0deg,
+    rgba(77, 54, 208, 1) 0%,
+    rgba(132, 116, 254, 1) 100%
+  );
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #4d36d0be;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+}
+
+
+
+
+.B_ICON{
+  background: rgb(105, 102, 226);
+  color: #ffffff;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: #c0bfbf 0px 5px 15px;
+  font-family: inherit;
+  font-weight: 800;
+}
+
+
+
+
+
+
+
+
 
 
 form{
-  background:#011e3b;
   display:flex;
   flex-direction:column;    
   align-items:center;
@@ -130,7 +199,6 @@ form{
   'wght' 600,
   'GRAD' 0,
   'opsz' 24;
-  position: absolute;
   right: 16px; /* تبعد قليلاً عن الحافة */
   font-size: 20px;
 }
@@ -153,7 +221,7 @@ form{
 }
 
 row{
-  width: 100%;
+  width: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -166,14 +234,19 @@ row{
 
 input{
   width:100%;
-  height: 20px ;
-  border-radius: 15px;
+  height: 15px ;
+  border-radius: 10px;
+  outline: 2px solid rgb(105, 102, 226);
+  border: 0;
+  background-color: #ffffff;
+  outline-offset: 3px;
   padding: 10px;
   font-size: 20px;
   font-weight: 600;
   font-family: "Cairo", sans-serif;
   text-align: center;
-  margin: 2px;
+  margin: 10px;
+  flex: 1;
 
 }
 
@@ -184,32 +257,46 @@ label{
   font-weight: 600;
   font-family: "Cairo", sans-serif;
   margin: 5px;
-  color: #ffffff;
+  color: #110038;
   white-space: nowrap;
 
+}
+
+card{
+  width: 100%;
+  background: #f0f1f1;
+  border-radius: 20px;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  justify-content: center;
 }
 
 
 table {
 width: 100%;
-border-collapse: collapse;
 font-family: Arial, sans-serif;
 text-align: center;
+outline: 2px solid rgb(105, 102, 226);
+outline-offset: 3px;
+border-radius: 5px;
 }
 table th, .styled-table td {
-  border: 1px solid #555;
   padding: 1px;
   text-align: center;
+  border-radius: 5px;
 }
 table th {
-  background-color: #ffffff;
-  color: black;
+  background-color: rgb(105, 102, 226);
+  color: rgb(255, 255, 255);
 }
 
 table td {
-  color: rgb(255, 255, 255);
-  border: 1px solid #ccc;
+  color: rgb(0, 0, 0);
+  border: 1px solid #ffffff;
+  background-color: rgb(255, 255, 255);
   padding: 6px;
+  border-radius: 5px;
 }
 
 .btn-delete{
@@ -260,21 +347,7 @@ color: red;
     padding-top: 8px;
   }
 
-  .item-btn {
-    display: block;
-    width: 100%;
-    padding: 9px 10px;
-    margin: 6px 0;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 600;
-    background: #02468a;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    box-sizing: border-box;
-  }
+
 
   .no-results {
     padding: 10px;
@@ -296,7 +369,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background :#011e3b;
+background : rgb(105, 102, 226);
 display:flex;
 justify-content:center;
 align-items:center;
@@ -306,8 +379,8 @@ z-index:9999;
 .spinner{
 width:220px;
 height:220px;
-border:8px solid #eee;
-border-top:8px solid #4CAF50;
+border:8px solid rgb(105, 102, 226);
+border-top:8px solid #ffffff;
 border-radius:50%;
 animation:spin 1s linear infinite;
 position:absolute;

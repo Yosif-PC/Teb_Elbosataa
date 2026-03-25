@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>طب البسطاء</title>
-  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body>
@@ -14,7 +15,13 @@
   <img src="Home_Logo.png" class="loader-logo">
   </div>
 
-<button class="B_Home" onclick="document.getElementById('popup_invoices').style.display='flex'">تأكيد الطلبات</button>
+<card>
+    <row>
+
+      <button class="B_ICON" style="width: 100%;font-size: large;" onclick="document.getElementById('popup_invoices').style.display='flex'">تأكيد الطلبات</button>
+    </row>
+
+  </card>
 <!-- Popup للـ Invoice_List -->
 <div id="popup_invoices" class="popup" hidden="true">
   <div class="popup-content" role="dialog" aria-labelledby="title_invoices">
@@ -32,9 +39,13 @@
 
 
 <bodyPrint id="Print_Area">
-
+<card>
+    <row>
 <label style="color:rgb(0, 0, 0);">فاتورة طلبات عميل طب البسطاء</label>
-
+    </row>
+  </card>
+<card>
+    <row>
 <!-- بيانات الفاتورة -->
 <table>
   <thead>
@@ -54,7 +65,10 @@
   <tbody id="clientInfo"></tbody>
 </table>
 
-<br>
+</row>
+  </card>
+<card>
+    <row>
 
 <!-- الأصناف -->
 <table>
@@ -69,9 +83,11 @@
   <tbody id="itemsTable"></tbody>
 </table>
 
-<br>
-
+</row>
+  </card>
 <!-- الملخص -->
+ <card>
+    <row>
 <table>
   <thead>
     <tr>
@@ -83,17 +99,19 @@
   </thead>
   <tbody id="summaryTable"></tbody>
 </table>
+</row>
+  </card>
 
 </bodyPrint>
+<card>
+    <row style="gap: 8px;">
+  <button class="B_ICON" style="width: 100%;  height:60px" onclick="Accepted()"><span class="material-symbols-outlined">library_add_check</span></button>
+  <button class="B_ICON" style="width: 100%; height:60px" onclick="Rejected()"><span class="material-symbols-outlined">delete</span></button>
+  <button class="B_ICON" style="width: 100%; height:60px" onclick="Open_Whatsapp()"><span class="material-symbols-outlined">chat</span></button>
+  <button class="B_ICON" style="width: 100%;  height:60px" onclick="Print()"><span class="material-symbols-outlined">print</span></button>
 
-<row>
-  <button class="B_Any" style="width: 100%;  height:60px" onclick="Accepted()">✔️</button>
-  <button class="B_Any" style="width: 100%; height:60px" onclick="Rejected()">❌</button>
-  <button class="B_Any" style="width: 100%; height:60px" onclick="Open_Whatsapp()">💬</button>
-  <button class="B_Any" style="width: 100%;  height:60px" onclick="Print()">💾</button>
-
-
-</row>
+  </row>
+</card>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
@@ -129,7 +147,7 @@ function showAlert(title) {
 }
 
 </script>
-
+<script src="version.js"></script>
 
 
 

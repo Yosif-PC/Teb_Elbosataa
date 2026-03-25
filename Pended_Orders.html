@@ -1,137 +1,195 @@
 <!doctype html>
 <html lang="ar">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>طب البسطاء</title>
-  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div id="loader">
-  <div class="spinner"></div>
-  <img src="Home_Logo.png" class="loader-logo">
+    <div class="spinner"></div>
+    <img src="Home_Logo.png" class="loader-logo">
   </div>
 
-<button class="B_Home" onclick="document.getElementById('popup_invoices').style.display='flex'">في انتظار التأكيد</button>
-<!-- Popup للـ Invoice_List -->
-<div id="popup_invoices" class="popup" hidden="true">
-  <div class="popup-content" role="dialog" aria-labelledby="title_invoices">
-    <h3 id="title_invoices">قائمة الفواتير</h3>
+  <card>
+    <row>
 
-    <input type="text" id="search_invoices" class="search-box" placeholder="ابحث عن رقم الفاتورة أو اسم العميل..." oninput="filterInvoiceList(this.value)">
+      <button class="B_ICON" style="width: 100%;font-size: large;"
+        onclick="document.getElementById('popup_invoices').style.display='flex'">في إنتظار التأكيد</button>
+    </row>
+  </card>
+  <!-- Popup للـ Invoice_List -->
+  <div id="popup_invoices" class="popup" hidden="true">
+    <div class="popup-content" role="dialog" aria-labelledby="title_invoices">
+      <h3 id="title_invoices">قائمة الفواتير</h3>
 
-    <div class="popup-list" id="list_invoices">
-      <!-- سيتم ملؤه تلقائيًا بواسطة JS -->
+      <input type="text" id="search_invoices" class="search-box" placeholder="ابحث عن رقم الفاتورة أو اسم العميل..."
+        oninput="filterInvoiceList(this.value)">
+
+      <div class="popup-list" id="list_invoices">
+        <!-- سيتم ملؤه تلقائيًا بواسطة JS -->
+      </div>
+
+      <div id="no_invoices" class="no-results" style="display:none;">لا توجد نتائج</div>
     </div>
-
-    <div id="no_invoices" class="no-results" style="display:none;">لا توجد نتائج</div>
   </div>
-</div>
- 
-
-<bodyPrint id="Print_Area">
-
-<label style="color:rgb(0, 0, 0);">فاتورة طلبات عميل طب البسطاء</label>
-
-<!-- بيانات الفاتورة -->
-<table>
-  <thead>
-    <tr>
-      <th>رقم الفاتورة</th>
-      <th>اسم العميل</th>
-    </tr>
-  </thead>
-  <tbody id="invoiceInfo"></tbody>
-
-  <thead>
-    <tr>
-      <th>عنوان التوصيل</th>
-      <th>رقم الهاتف</th>
-    </tr>
-  </thead>
-  <tbody id="clientInfo"></tbody>
-</table>
-
-<br>
-
-<!-- الأصناف -->
-<table>
-  <thead>
-    <tr>
-      <th>الصنف</th>
-      <th>الكمية</th>
-      <th>السعر</th>
-      <th>الإجمالي</th>
-    </tr>
-  </thead>
-  <tbody id="itemsTable"></tbody>
-</table>
-
-<br>
-
-<!-- الملخص -->
-<table>
-  <thead>
-    <tr>
-      <th>ثمن الأصناف</th>
-      <th>التوصيل</th>
-      <th>الخصم</th>
-      <th>المطلوب</th>
-    </tr>
-  </thead>
-  <tbody id="summaryTable"></tbody>
-</table>
-
-</bodyPrint>
-
-<row>
-  <button class="B_Any" style="width: 100%;  height:60px" onclick="Accepted()">✔️</button>
-  <button class="B_Any" style="width: 100%; height:60px" onclick="Rejected()">❌</button>
-  <button class="B_Any" style="width: 100%; height:60px" onclick="Open_Whatsapp()">💬</button>
-  <button class="B_Any" style="width: 100%; color: rgb(25, 116, 235); height:60px" onclick="BackInvoice()">❯❯</button>
-  <button class="B_Any" style="width: 100%;  height:60px" onclick="Print()">💾</button>
 
 
-</row>
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <bodyPrint id="Print_Area">
 
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-<script src="FireBase.js"></script>
-<script src="Pended_Orders_js.js"></script>
+    <card>
+      <row>
+        <label style="color:rgb(0, 0, 0);">فاتورة طلبات عميل طب البسطاء</label>
+      </row>
+    </card>
+    <!-- بيانات الفاتورة -->
+    <card>
+      <row>
+        <table>
+          <thead>
+            <tr>
+              <th>رقم الفاتورة</th>
+              <th>اسم العميل</th>
+            </tr>
+          </thead>
+          <tbody id="invoiceInfo"></tbody>
+
+          <thead>
+            <tr>
+              <th>عنوان التوصيل</th>
+              <th>رقم الهاتف</th>
+            </tr>
+          </thead>
+          <tbody id="clientInfo"></tbody>
+        </table>
+
+      </row>
+    </card>
+    <!-- الأصناف -->
+    <card>
+      <row>
+        <table>
+          <thead>
+            <tr>
+              <th>الصنف</th>
+              <th>الكمية</th>
+              <th>السعر</th>
+              <th>الإجمالي</th>
+            </tr>
+          </thead>
+          <tbody id="itemsTable"></tbody>
+        </table>
+
+      </row>
+    </card>
+
+    <!-- الملخص -->
+    <card>
+      <row>
+        <table>
+          <thead>
+            <tr>
+              <th>ثمن الأصناف</th>
+              <th>التوصيل</th>
+              <th>الخصم</th>
+              <th>المطلوب</th>
+            </tr>
+          </thead>
+          <tbody id="summaryTable"></tbody>
+        </table>
+      </row>
+    </card>
+
+  </bodyPrint>
+  <card>
+    <row style="gap: 8px;">
+      <button class="B_ICON" style="width: 100%;  height:60px" onclick="Accepted()"><span
+          class="material-symbols-outlined">library_add_check</span></button>
+      <button class="B_ICON" style="width: 100%; height:60px" onclick="Rejected()"><span
+          class="material-symbols-outlined">delete</span></button>
+      <button class="B_ICON" style="width: 100%; height:60px" onclick="Open_Whatsapp()"><span
+          class="material-symbols-outlined">chat</span></button>
+      <button class="B_ICON" style="width: 100%; height:60px" onclick="BackInvoice()"><span
+          class="material-symbols-outlined">arrow_top_left</span></button>
+      <button class="B_ICON" style="width: 100%;  height:60px" onclick="Print()"><span
+          class="material-symbols-outlined">print</span></button>
+
+
+    </row>
+  </card>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="FireBase.js"></script>
+  <script src="Pended_Orders_js.js"></script>
 
 
 
-<head>
-<meta charset="UTF-8">
-<title>3 رسائل</title>
-<style>
-.alert-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);justify-content:center;align-items:center}
-.alert-box{background:#fff;padding:20px;border-radius:10px;text-align:center;width:260px;animation:pop 0.3s ease}
-.alert-box h2{margin:0 0 8px;color:#28a745}
-@keyframes pop{from{transform:scale(0.7);opacity:0}to{transform:scale(1);opacity:1}}
-</style>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>3 رسائل</title>
+    <style>
+      .alert-bg {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        justify-content: center;
+        align-items: center
+      }
 
-<div class="alert-bg" id="alert">
-  <div class="alert-box">
-    <h2 id="alert-title"></h2>
+      .alert-box {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        width: 260px;
+        animation: pop 0.3s ease
+      }
+
+      .alert-box h2 {
+        margin: 0 0 8px;
+        color: #28a745
+      }
+
+      @keyframes pop {
+        from {
+          transform: scale(0.7);
+          opacity: 0
+        }
+
+        to {
+          transform: scale(1);
+          opacity: 1
+        }
+      }
+    </style>
+  </head>
+
+  <div class="alert-bg" id="alert">
+    <div class="alert-box">
+      <h2 id="alert-title"></h2>
+    </div>
   </div>
-</div>
 
-<script>
+  <script>
 
-function showAlert(title) {
-  document.getElementById("alert-title").innerText = title;
-  document.getElementById("alert").style.display = "flex";
-  setTimeout(() => {
-    document.getElementById("alert").style.display = "none";
-  }, 2000);
-}
+    function showAlert(title) {
+      document.getElementById("alert-title").innerText = title;
+      document.getElementById("alert").style.display = "flex";
+      setTimeout(() => {
+        document.getElementById("alert").style.display = "none";
+      }, 2000);
+    }
 
-</script>
-
+  </script>
+  <script src="version.js"></script>
 
 
 
@@ -141,4 +199,5 @@ function showAlert(title) {
 
 
 </body>
+
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>طب البسطاء</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
 
 </head>
@@ -14,42 +15,56 @@
   <div class="spinner"></div>
   <img src="Home_Logo.png" class="loader-logo">
   </div>
+  <card>
+    <row>
 
-  <button class="B_Home" >طلب جديد</button> 
-  <label id="invoice">فاتورة رقم : </label>
+      <button class="B_ICON" style="width: 100%;font-size: large;" >طلب جديد</button> 
+    </row>
+
+  </card>
+  <card>
+    <row style="justify-content: start;">
+      <button class="B_ICON"><span class="material-symbols-outlined">inactive_order</span></button>
+      <input  id="invoice" readonly style="width: 30px;">
+    </row>
+  </card>
+  <card>
     <row>
-      <label>العميل</label>
-      <input id="Cl" readonly>
+      <button class="B_ICON"><span class="material-symbols-outlined">person</span></button>
+      <input id="Cl" readonly placeholder="العميل">
     </row>
     <row>
-      <label>العنوان</label>
-      <input  id="Cl_Address">
+      <button class="B_ICON"><span class="material-symbols-outlined">location_on</span></button>
+      <input  id="Cl_Address" placeholder="العنوان">
     </row>
     <row>
-      <label>الهاتف</label>
-      <input  id="Cl_Phone">
+      <button class="B_ICON"><span class="material-symbols-outlined">phone_in_talk</span></button>
+      <input  id="Cl_Phone" type="number" placeholder="رقم الهاتف">
 
     </row>
-    <br>
+  </card>
+  <card>
+
     <row>
-      <label>الصنف</label>
-      <input id="D1" readonly>
-      
+      <button class="B_ICON"><span class="material-symbols-outlined">production_quantity_limits</span></button>
+      <input id="D1" readonly placeholder="الصنف">  
     </row>
     <row>
-      <label>الكمية</label>
-      <input type="number" id="D2" >
-      <label>السعر</label>
-      <input type="number" id="D3">
-      <button class="B_Any" style="width: 150px;background-color: rgb(87, 177, 255)" onclick="addToTable()">إضافة</button>
+      <button class="B_ICON"><span class="material-symbols-outlined">balance</span></button>
+      <input type="number" id="D2" placeholder="الكمية">
+      <button class="B_ICON"><span class="material-symbols-outlined">payments</span></button>
+      <input type="number" id="D3" placeholder="السعر">
+      <button class="B_ICON" onclick="addToTable()"><span class="material-symbols-outlined">Add</span></button>
     </row> 
+
+    <row>   
     <table id="resultsTable">
     <thead>
       <tr>
         <th>الصنف</th>
         <th>الكمية</th>
         <th>السعر</th>
-        <th>الإحمالى</th>
+        <th>الإجمالى</th>
         <th></th>
       </tr>
     </thead>
@@ -57,13 +72,18 @@
     <tbody>
     </tbody>
   </table>
+  </row>
+</card> 
+<card>
   <row>
-      <label>التوصيل</label>
-      <input type="number" id="D5">
-      <label>الخصم</label>
-      <input type="number" id="D6">
+      <button class="B_ICON"><span class="material-symbols-outlined">delivery_truck_bolt</span></button>
+      <input type="number" id="D5"  placeholder="التوصيل">
+      <button class="B_ICON"><span class="material-symbols-outlined">percent_discount</span></button>
+      <input type="number" id="D6" placeholder="الخصم">
     </row>
-
+</card>
+<card>
+    <row>
     <table id="resultsTable2">
     <thead>
       <tr>
@@ -77,15 +97,16 @@
     <tbody>
     </tbody>
   </table>
+  </row>
+</card>
 
-  
-
-  
-    
-
-    <row style="gap: 20px">
-      <button class="B_Any" style="width: 100%;background-color: rgb(35, 143, 65)" onclick="sendData()" >حفظ</button>
+ 
+  <card>
+  <row>
+      <button class="B_ICON" style="width: 100%; font-size: large;" onclick="sendData()" >حفظ</button>
     </row>
+</card>
+
 
 
 <div id="loadingOverlay" style="
@@ -171,7 +192,7 @@ function showAlert(title) {
 }
 
 </script>
-
+<script src="version.js"></script>
 
 
 

@@ -21,6 +21,7 @@ function renderTable() {
       <td>${item[1]}</td>
       <td>${item[2]}</td>
       <td class="deleteBtn" onclick="deleteRow(this)">X</td>
+      <td class="deleteBtn" onclick="editRow(this)">✎</td>
     </tr>
   `).join('');
 }
@@ -52,6 +53,7 @@ function renderTable() {
       <td>${C2}</td>
       <td>${C3}</td>
       <td class="deleteBtn" onclick="deleteRow(this)">X</td>
+      <td class="deleteBtn" onclick="editRow(this)">✎</td>
     `;
     tbody.appendChild(row);
     
@@ -67,6 +69,29 @@ function renderTable() {
 
     
   }
+
+   function editRow(el) {
+
+  
+        let row = el.parentNode;
+        let index = Array.from(row.parentNode.children).indexOf(row);
+        document.getElementById("C1").value = ClientsList[index][0];
+        document.getElementById("C2").value = ClientsList[index][1];
+        document.getElementById("C3").value = ClientsList[index][2];
+        ClientsList.splice(index, 1); // حذف الصف من المصفوفة
+        row.remove();
+        window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    
+  }
+
+
+
+
+
 
   function sendClientsData() {
 

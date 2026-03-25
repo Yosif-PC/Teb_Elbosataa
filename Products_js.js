@@ -21,6 +21,7 @@ function renderTable() {
       <td>${item[0]}</td>
       <td>${item[1]}</td>
       <td class="deleteBtn" onclick="deleteRow(this)">X</td>
+      <td class="deleteBtn" onclick="editRow(this)">✎</td>
     </tr>
   `).join('');
 }
@@ -49,8 +50,10 @@ function renderTable() {
       <td>${P1}</td>
       <td>${P2}</td>
       <td class="deleteBtn" onclick="deleteRow(this)">X</td>
+      <td class="deleteBtn" onclick="editRow(this)">✎</td>
     `;
     tbody.appendChild(row);
+    showAlert('✅')
     
   }
 
@@ -64,6 +67,32 @@ function renderTable() {
 
     
   }
+
+
+   function editRow(el) {
+
+  
+        let row = el.parentNode;
+        let index = Array.from(row.parentNode.children).indexOf(row);
+        document.getElementById("P1").value = ProductsList[index][0];
+        document.getElementById("P2").value = ProductsList[index][1];
+        ProductsList.splice(index, 1); // حذف الصف من المصفوفة
+        row.remove();
+        window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    
+  }
+
+
+
+
+
+
+
+
 
   function sendProductsData() {
     db.ref("Products_LD").set(ProductsList);

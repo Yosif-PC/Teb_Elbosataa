@@ -159,6 +159,7 @@ db.ref("Last_Invoice_Number").on("value", (snapshot)=>{
   const data = snapshot.val();
 
   invoiceNumber=Number(data+1)||1
+  document.getElementById("invoice").value = invoiceNumber;
 });
 
 
