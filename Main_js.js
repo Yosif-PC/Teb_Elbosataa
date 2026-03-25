@@ -6,7 +6,7 @@ db.ref("Last_Invoice_Number").on("value", (snapshot)=>{
 
 db.ref("Orders_LD").on("value", (snapshot)=>{
   const data = snapshot.val();
-  document.getElementById("H2").textContent = "طلبات جديدة : " + Object.keys(data).length||0;
+  document.getElementById("H2").textContent = "طلبات جديدة : " + Object.keys(data||0).length||0;
 });
 
 db.ref("Accept_Order_LD").on("value", (snapshot)=>{
