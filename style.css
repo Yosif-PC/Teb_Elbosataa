@@ -395,3 +395,68 @@ position:absolute;
 0%{transform:rotate(0deg);}
 100%{transform:rotate(360deg);}
 }
+
+/* Print Mode */
+.print-mode body {
+  background:#f1eafc !important;
+  color: black !important;
+}
+
+/* الجدول */
+.print-mode table {
+  width: 100%;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  border: none; /* الإطار الخارجي */
+  border-radius: 8px;
+  border-collapse: separate; /* مهم لظهور border-radius */
+  border-spacing: 0;
+  box-shadow:none;
+}
+
+
+
+.print-mode card {
+  width: 100%;
+  background: #f0f1f1;
+  border-radius: 0px;
+  padding: 5px;
+  margin: 0px;
+  box-shadow:none;
+}
+
+
+.print-mode row {
+
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.print-mode label {
+  
+  font-family: Arial, sans-serif;
+}
+
+/* رؤوس الجدول */
+.print-mode table th {
+  background-color: rgb(8, 8, 14);
+  color: #ffffff;
+  padding: 6px;
+  border: 1px solid rgb(10, 10, 12);
+  border-radius: 0px;
+}
+
+/* خلايا الجدول */
+.print-mode table td {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 6px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 0px;
+}
+
+/* إخفاء أي عناصر غير مرغوبة عند الحفظ */
+.print-mode .no-print {
+  display: none !important;
+  box-shadow: none !important;
+}

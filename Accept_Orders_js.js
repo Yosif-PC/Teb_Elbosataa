@@ -216,15 +216,29 @@ function closePopup() {
 
 
 
-function Print(){
+function Print() {
+  const printArea = document.getElementById("Print_Area");
 
-html2canvas(document.getElementById("Print_Area")).then(function(canvas){
+  // إضافة class للطباعة مؤقتًا
+  printArea.classList.add("print-mode");
 
-    const link = document.createElement("a");
-    link.download = `${document.querySelector("#invoiceInfo tr").cells[0].innerText}-${document.querySelector("#invoiceInfo tr").cells[1].innerText}.png`;
-    link.href = canvas.toDataURL();
-    link.click();
+  // تأخير صغير لتطبيق CSS قبل html2canvas
+  setTimeout(() => {
+    html2canvas(printArea, {
+      scale: 3,           // جودة عالية
+      useCORS: true,      // لتضمين الصور الخارجية
+      scrollY: -window.scrollY, // لتجنب مشكلة السكروول
+    }).then(function(canvas) {
 
-});
+      const link = document.createElement("a");
+      const invoice = document.querySelector("#invoiceInfo tr");
+      link.download = `${invoice.cells[0].innerText}-${invoice.cells[1].innerText}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
 
+      // إزالة class بعد الحفظ
+      printArea.classList.remove("print-mode");
+
+    });
+  }, 100); // تأخير صغير لتطبيق CSS
 }
