@@ -1,4 +1,4 @@
-const VERSION = 2; // رقم تلقائي لكل تحديث
+const VERSION = 1; // رقم تلقائي لكل تحديث
   
   // ملفات CSS اللي عايز تحدثها
   const cssFilesToUpdate = ["style.css"];
